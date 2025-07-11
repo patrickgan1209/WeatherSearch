@@ -1,0 +1,112 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Current Weather";
+}
+
+<!-- ⬇︎ HERO HEADER -->
+<header class="bg-primary bg-gradient text-white py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">Weather Search</h1>
+        <p class="lead mb-4">Search any city &nbsp;•&nbsp; Get the latest conditions &nbsp;•&nbsp; Save for 1-click
+            recall</p>
+
+        <!-- Search form -->
+        <form method="post" asp-page-handler="SearchName" class="row g-2 justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <input type="text" name="name" class="form-control form-control-lg"
+                    placeholder="E.g. Perth or Perth, AU" value="@Model.SearchCity" required />
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-light btn-lg shadow-sm">
+                    <i class="bi bi-search me-1"></i>Search
+                </button>
+            </div>
+        </form>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Error flash -->
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger shadow-sm text-center">@Model.ErrorMessage</div>
+    }
+
+    <!-- ⬇︎ WEATHER CARD -->
+    @if (Model.Weather is not null)
+    {
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 col-lg-6">
+                <div class="card glass shadow-lg border-0">
+                    <div class="card-body text-center p-4">
+                        <h3 class="mb-3 fw-semibold">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>
+                            @Model.Weather.Name, @Model.Weather.Country
+                        </h3>
+
+                        <img src="@($"https://openweathermap.org/img/wn/{Model.Weather.Icon}@2x.png")" alt="icon"
+                            class="mx-auto d-block" style="width:120px" />
+
+                        <h1 class="display-3 fw-bold mb-0">
+                            @Model.Weather.Temp.ToString("F0")°C
+                        </h1>
+
+                        <p class="text-muted fst-italic mb-0">
+                            @Model.Weather.Description • Humidity @Model.Weather.Humidity%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- ⬇︎ SAVED LOCATIONS LIST -->
+    @if (Model.SearchedLocations.Any())
+    {
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h4 class="mb-3">Recent Searches</h4>
+                <ul class="list-group shadow-sm">
+                    @foreach (var loc in Model.SearchedLocations)
+                    {
+                        var local = loc.SearchedDatetime.ToLocalTime();
+
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+
+                            <!-- Load btn -->
+                            <form method="post" asp-page-handler="LoadLocation" class="d-flex align-items-start">
+                                <input type="hidden" name="name" value="@loc.Name" />
+                                <input type="hidden" name="country" value="@loc.Country" />
+                                <button class="btn btn-link p-0 text-start text-decoration-none">
+                                    <strong>@loc.Name, @loc.Country</strong>
+                                    <span class="badge bg-secondary ms-2">
+                                        Last searched on @local.ToString("dd MMM, yyyy h:mm tt")
+                                    </span>
+                                </button>
+                            </form>
+
+                            <!-- Delete btn -->
+                            <form method="post" asp-page-handler="Delete">
+                                <input type="hidden" name="id" value="@loc.Id" />
+                                <button class="btn btn-sm btn-outline-danger" type="submit" aria-label="Remove"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- ⬇︎ GLASS-CARD helper (tiny inline style) -->
+<style>
+    .glass {
+        backdrop-filter: blur(10px) saturate(160%);
+        background: rgba(255, 255, 255, 0.55);
+    }
+</style>
