@@ -7071,3 +7071,28 @@ ORDER BY "s"."SearchedDatetime" DESC
 2025-07-11 22:03:06.491 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - null null
 2025-07-11 22:03:06.491 +08:00 [INF] The file /WeatherSearch.styles.css was not modified
 2025-07-11 22:03:06.491 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - 304 null text/css 0.4677ms
+2025-07-11 22:17:54.441 +08:00 [INF] User profile is available. Using 'C:\Users\fspat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-11 22:17:55.162 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-07-11 22:17:55.372 +08:00 [INF] Now listening on: https://localhost:7177
+2025-07-11 22:17:55.372 +08:00 [INF] Now listening on: http://localhost:5227
+2025-07-11 22:17:55.375 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 22:17:55.375 +08:00 [INF] Hosting environment: Development
+2025-07-11 22:17:55.375 +08:00 [INF] Content root path: C:\AMP\WeatherSearch
+2025-07-11 22:17:55.664 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - null null
+2025-07-11 22:17:55.682 +08:00 [INF] Executing endpoint '/Index'
+2025-07-11 22:17:55.737 +08:00 [INF] Route matched with {page = "/Index"}. Executing page /Index
+2025-07-11 22:17:55.761 +08:00 [INF] Executing handler method WeatherSearch.Pages.IndexModel.OnGetAsync - ModelState is "Valid"
+2025-07-11 22:17:56.050 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Country", "s"."Name", "s"."SearchedDatetime", "s"."State"
+FROM "SearchedLocations" AS "s"
+ORDER BY "s"."SearchedDatetime" DESC
+2025-07-11 22:17:56.098 +08:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-07-11 22:17:56.101 +08:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-07-11 22:17:56.101 +08:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-07-11 22:17:56.194 +08:00 [INF] Executed page /Index in 453.0654ms
+2025-07-11 22:17:56.196 +08:00 [INF] Executed endpoint '/Index'
+2025-07-11 22:17:56.203 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - 200 null text/html; charset=utf-8 539.1104ms
+2025-07-11 22:17:56.224 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - null null
+2025-07-11 22:17:56.231 +08:00 [INF] The file /WeatherSearch.styles.css was not modified
+2025-07-11 22:17:56.232 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - 304 null text/css 8.467ms
