@@ -12,6 +12,7 @@ A simple ASP .NET Core Razor Pages app that lets you
 
 * .NET 8 SDK  
 * Free **OpenWeatherMap** API key  
+(Ref: https://openweathermap.org/api)
 
 ---
 
@@ -19,7 +20,7 @@ A simple ASP .NET Core Razor Pages app that lets you
 
 ```bash
 # 1 clone & restore
-git clone https://github.com/your-name/WeatherSearch.git
+git clone https://github.com/patrickgan1209/WeatherSearch.git
 cd WeatherSearch
 dotnet restore
 
