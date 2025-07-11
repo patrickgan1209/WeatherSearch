@@ -23,7 +23,7 @@ git clone https://github.com/your-name/WeatherSearch.git
 cd WeatherSearch
 dotnet restore
 
-# 2 add your API key (user-secrets keeps it out of source control)
+# 2 add your API key
 dotnet user-secrets set "OpenWeatherMapApiKey" "<YOUR_KEY>" --project WeatherSearch.csproj
 
 # 3 run the app

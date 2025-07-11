@@ -7096,3 +7096,32 @@ ORDER BY "s"."SearchedDatetime" DESC
 2025-07-11 22:17:56.224 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - null null
 2025-07-11 22:17:56.231 +08:00 [INF] The file /WeatherSearch.styles.css was not modified
 2025-07-11 22:17:56.232 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7177/WeatherSearch.styles.css?v=MK-NfvrSgrr5MK0LQYr5S-5Uc2bM9QD7ea3_3vDOL1M - 304 null text/css 8.467ms
+2025-07-11 22:17:58.169 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7177/?handler=LoadLocation - application/x-www-form-urlencoded 204
+2025-07-11 22:17:58.171 +08:00 [INF] Executing endpoint '/Index'
+2025-07-11 22:17:58.171 +08:00 [INF] Route matched with {page = "/Index"}. Executing page /Index
+2025-07-11 22:17:58.192 +08:00 [INF] Executing handler method WeatherSearch.Pages.IndexModel.OnPostLoadLocationAsync - ModelState is "Valid"
+2025-07-11 22:17:58.199 +08:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Perth&appid=59d8a129acd63da4cb1bfa0eebaa429b&units=metric
+2025-07-11 22:17:58.202 +08:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Perth&appid=59d8a129acd63da4cb1bfa0eebaa429b&units=metric
+2025-07-11 22:17:58.453 +08:00 [INF] Received HTTP response headers after 249.0428ms - 200
+2025-07-11 22:17:58.453 +08:00 [INF] End processing HTTP request after 255.931ms - 200
+2025-07-11 22:17:58.537 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__name_0='?' (Size = 5), @__country_1='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Country", "s"."Name", "s"."SearchedDatetime", "s"."State"
+FROM "SearchedLocations" AS "s"
+WHERE "s"."Name" = @__name_0 AND "s"."Country" = @__country_1
+LIMIT 1
+2025-07-11 22:17:58.611 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "SearchedLocations"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-07-11 22:17:58.616 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 2), @p1='?' (Size = 5), @p2='?' (DbType = DateTime), @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "SearchedLocations" ("Country", "Name", "SearchedDatetime", "State")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-07-11 22:17:58.636 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Country", "s"."Name", "s"."SearchedDatetime", "s"."State"
+FROM "SearchedLocations" AS "s"
+ORDER BY "s"."SearchedDatetime" DESC
+2025-07-11 22:17:58.637 +08:00 [INF] Executed handler method OnPostLoadLocationAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-07-11 22:17:58.642 +08:00 [INF] Executed page /Index in 471.2096ms
+2025-07-11 22:17:58.643 +08:00 [INF] Executed endpoint '/Index'
+2025-07-11 22:17:58.643 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7177/?handler=LoadLocation - 200 null text/html; charset=utf-8 474.4982ms
