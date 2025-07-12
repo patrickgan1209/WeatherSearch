@@ -1,20 +1,18 @@
-# Build stage
+# ---- build stage ----
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /source
+WORKDIR /src
 
-# Copy csproj and restore
-COPY src/WeatherSearch/*.csproj ./
-RUN dotnet restore
+COPY src/WeatherSearch/WeatherSearch.csproj WeatherSearch/
+RUN dotnet restore WeatherSearch/WeatherSearch.csproj
 
-# Copy everything and build
-COPY src/WeatherSearch/. ./
-RUN dotnet publish -c Release -o /app/publish
+COPY src/WeatherSearch/ ./WeatherSearch/
+WORKDIR /src/WeatherSearch
+RUN dotnet publish WeatherSearch.csproj -c Release -o /app
 
-# Runtime stage
+# ---- runtime stage ----
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/publish .
-
+COPY --from=build /app .
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "WeatherSearch.dll"]
+ENTRYPOINT ["dotnet","WeatherSearch.dll"]

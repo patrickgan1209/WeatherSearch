@@ -1,6 +1,6 @@
 *.db
 *.db-shm
 *.db-wal
-logs/
-bin/
-obj/
+src/WeatherSearch/logs/
+src/WeatherSearch/bin/
+src/WeatherSearch/obj/
