@@ -8,6 +8,14 @@ A simple ASP .NET Core Razor Pages app that lets you
 
 ---
 
+## Live Demo
+
+You can access the deployed application here:  
+https://ncys7mmdvs.ap-southeast-2.awsapprunner.com
+
+
+---
+
 ## Prerequisites
 
 * .NET 8 SDK  
