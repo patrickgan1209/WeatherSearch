@@ -5,9 +5,9 @@
       "name": "Launch Weather Search",
       "type": "coreclr",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/Debug/net8.0/WeatherSearch.dll",
+      "program": "${workspaceFolder}/src/WeatherSearch/bin/Debug/net8.0/WeatherSearch.dll",
       "args": [],
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/src/WeatherSearch",
       "stopAtEntry": false,
       "serverReadyAction": {
         "action": "openExternally",

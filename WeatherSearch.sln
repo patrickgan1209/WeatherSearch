@@ -1,23 +1,54 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSearch", "WeatherSearch.csproj", "{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSearch", "SRC\WeatherSearch\WeatherSearch.csproj", "{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSearch.Tests", "tests\WeatherSearch.Tests\WeatherSearch.Tests.csproj", "{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Debug|x86.Build.0 = Debug|Any CPU
 		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|x64.Build.0 = Release|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC67DE0B-39FE-4AAA-B97F-3ED591F1F9FB}.Release|x86.Build.0 = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|x64.Build.0 = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Debug|x86.Build.0 = Debug|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|x64.ActiveCfg = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|x64.Build.0 = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|x86.ActiveCfg = Release|Any CPU
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{023CAB02-78DF-4294-A0FE-5142F4D8A2E4} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03522E41-B709-4F04-A274-7BD11B5497DC}
