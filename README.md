@@ -36,7 +36,7 @@ dotnet restore
 dotnet user-secrets set "OpenWeatherMapApiKey" "<YOUR_KEY>" --project src/WeatherSearch/WeatherSearch.csproj
 
 # 3 run the app
-dotnet run --project src/WeatherSearch/WeatherSearch/WeatherSearch.csproj
+dotnet run --project src/WeatherSearch/WeatherSearch.csproj
 
 # browse to:
 # http://localhost:5227  (HTTPS on 7177 if preferred)
