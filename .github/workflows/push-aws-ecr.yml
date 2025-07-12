@@ -1,31 +1,34 @@
 name: Build & push image (OIDC)
 
-on: [push]
+on:
+  push:
+    paths-ignore: # Ignore pushes that only change this file
+      - "README.md"
 
 jobs:
   push:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write   # IMPORTANT for OIDC
+      id-token: write # IMPORTANT for OIDC
       contents: read
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    # 1. Get short-lived AWS creds via the role
-    - uses: aws-actions/configure-aws-credentials@v4
-      with:
-        role-to-assume: arn:aws:iam::492748322465:role/WeathersnapECRPush
-        aws-region: ap-southeast-2
+      # 1. Get short-lived AWS creds via the role
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::492748322465:role/WeathersnapECRPush
+          aws-region: ap-southeast-2
 
-    # 2. Build, tag, push
-    - name: Build & push
-      env:
-        ECR_URI: ${{ secrets.ECR_URI }}
-      run: |
-        docker build -t weathersnap .
-        docker tag weathersnap:latest $ECR_URI:latest
-        aws ecr get-login-password --region ap-southeast-2 |
-          docker login --username AWS --password-stdin $ECR_URI
-        docker push $ECR_URI:latest
+      # 2. Build, tag, push
+      - name: Build & push
+        env:
+          ECR_URI: ${{ secrets.ECR_URI }}
+        run: |
+          docker build -t weathersnap .
+          docker tag weathersnap:latest $ECR_URI:latest
+          aws ecr get-login-password --region ap-southeast-2 |
+            docker login --username AWS --password-stdin $ECR_URI
+          docker push $ECR_URI:latest
